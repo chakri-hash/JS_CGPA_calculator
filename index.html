@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade_Calculator</title>
+    <style>
+        body{
+            background-color: rgb(124, 94, 99);
+        }
+        .heading{
+            font-family: san 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .con{
+            text-align: center;
+        }
+        .grade{
+            padding: 10px;
+            border-radius: 10px;
+            margin: 0.05%;
+        }
+        .credits{
+            padding: 10px;
+            border-radius: 10px;
+            margin: 0.05%;
+        }
+        .btn{
+            padding: 10px;
+            margin: 0.5%;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <h1 class="heading">CGPA CALCULATOR</h1>
+        <div>
+            <input class="grade" placeholder="enter 1-1 SGPA"/>
+            <input class="credits" placeholder="enter 1-1 credits"/>
+        </div>
+        <div>
+            <input class="grade" placeholder="enter 1-2 SGPA"/>
+            <input class="credits" placeholder="enter 1-2 credits"/>
+        </div><div>
+            <input class="grade" placeholder="enter 2-1 SGPA"/>
+            <input class="credits" placeholder="enter 2-1 credits"/>
+        </div><div>
+            <input class="grade" placeholder="enter 2-2 SGPA"/>
+            <input class="credits" placeholder="enter 2-2 credits"/>
+        </div><div>
+            <input class="grade" placeholder="enter 3-1 SGPA"/>
+            <input class="credits" placeholder="enter 3-1 credits"/>
+        </div><div>
+            <input class="grade" placeholder="enter 3-2 SGPA"/>
+            <input class="credits" placeholder="enter 3-2 credits"/>
+        </div><div>
+            <input class="grade" placeholder="enter 4-1 SGPA"/>
+            <input class="credits" placeholder="enter 4-1 credits"/>
+        </div><div>
+            <input class="grade" placeholder="enter 4-2 SGPA"/>
+            <input class="credits" placeholder="enter 4-2 credits"/>
+        </div>
+        <button class= "btn" onclick="get_func()">Calculate</button>
+
+    </div>
+</body>
+
+<script>
+    let marks = [];
+    let credits = [];
+    function get_func() {
+        let all_grade = Array.from(document.querySelectorAll(".grade"));
+        all_grade.forEach((node)=>{
+            marks.push(node.value);
+        });
+        let all_credit = Array.from(document.querySelectorAll(".credits"));
+        all_credit.forEach((node)=>{
+            credits.push(node.value)
+        });
+
+        let sum=0;
+        let total_credits =  0;
+        for(i=0;i<8;i++){
+            sum=sum+marks[i]*credits[i];
+            total_credits=total_credits+parseInt(credits[i]);
+        }
+        const h1 = document.createElement("h1");
+        h1.innerText=sum/total_credits;
+        h1.style.textAlign = "center";
+        document.body.append(h1);
+
+    }
+    
+
+   
+</script>
+</html>
